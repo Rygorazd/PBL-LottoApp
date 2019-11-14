@@ -50,6 +50,11 @@ public class Lotto {
         if(numbers.length > NUMBERS_ARRAY_SIZE) {
             return false;
         }
+        
+        //too little numbers entered
+        if(numbers.length < NUMBERS_ARRAY_SIZE) {
+            return false;
+        }
 
         //validate extracted numbers - array should contain only numbers between 1 and 40
         for (int i = 0; i < numbers.length; i++) {
