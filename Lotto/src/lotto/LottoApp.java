@@ -11,17 +11,15 @@ public class LottoApp {
 
     public static void main(String[] args) {
 
-        //initialize variables
-        Scanner scanner = new Scanner(System.in);
-
         //ask user for his/her lottery numbers
-        System.out.println("Welcome to the Lotto game!");        
+        System.out.println("Welcome to the Lotto game!");
         askUsersForTheirGuess();
     }
 
     //ask user for his/her numbers and validate them
     private static void askUsersForTheirGuess() {
         for (int i = 0; i < QUESTIONS_AMOUNT; i++) {
+            System.out.println("Guess " + (i + 1) + " out of " + QUESTIONS_AMOUNT + ".");
             System.out.println("Please enter SIX numbers between 1 and 40. Please separate them by ONE space.");
             String numbers = scanner.nextLine().trim();
             if (!lotto.validateUserInput(numbers)) {
