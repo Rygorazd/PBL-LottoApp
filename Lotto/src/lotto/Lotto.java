@@ -188,7 +188,7 @@ public class Lotto {
 
 
         private String gameResults(int matchedNumbers){
-            switch (matchedNumbers) {
+            switch (matchedNumbers){
                 case 3:
                     gameResult=" - €125";
                     break;
