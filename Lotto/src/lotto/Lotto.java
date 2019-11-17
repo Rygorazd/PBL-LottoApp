@@ -1,6 +1,5 @@
 package lotto;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Lotto {
@@ -11,9 +10,12 @@ public class Lotto {
     private final int MAX_RANDOM_NUMBER;
     private final int USER_CHOICE_ROWS_NUMBER;
 
-    private int[] lotteryNumbers;
-    private int[][] userNumbers;
-    private Random random;
+    private int[] lotteryNumbers; // lottery random set numbers 1D array
+    private int[][] userNumbers,check; // user three guess set  numbers array
+    private Random random; // random numbers variable
+    private int count1, count2, count3; // successful guess counters
+    private String win1, win2, win3; // variables for game result status
+    private boolean duplicates; // variable to check if duplicate numbers are entered
 
     public Lotto() {
         //initialize variables
@@ -24,7 +26,14 @@ public class Lotto {
 
         lotteryNumbers = new int[NUMBERS_ARRAY_SIZE];
         userNumbers = new int[USER_CHOICE_ROWS_NUMBER][NUMBERS_ARRAY_SIZE];
+        check = new int[USER_CHOICE_ROWS_NUMBER][NUMBERS_ARRAY_SIZE];
         random = new Random();
+        count1=0;
+        count2=0;
+        count3=0;
+        win1=" - No Prize, try again ";
+        win2=" - No Prize, try again";
+        win3=" - No Prize, try again";
 
         //generate lottery numbers
         generateLotteryNumbers();
@@ -106,6 +115,77 @@ public class Lotto {
         }
     }
 
+    // Compute
+    // iteration through each set of user numbers to check with lottery numbers matches.
+    // if user guess is matching to lottery number check array is getting updated with matched number ==> line 126
+    public void compute(){
+        for (int i = 0;i < userNumbers.length; i++){
+            for(int j = 0; j < userNumbers[i].length; j++){
+                for(int k = 0; k < lotteryNumbers.length; k++){
+                    if(lotteryNumbers[k] == userNumbers[i][j]){
+                        check[i][j]=userNumbers[i][j];
+                    }
+                }
+            }
+        }
+        // Count of player's successful guess numbers in check array.
+        //  if number is not zero, then count is getting incremented by 1
+        for (int i = 0; i < check.length; i++){
+            for (int j=0; j<check[i].length; j++){
+                if ((i == 0) && (check[i][j] != 0)){
+                    count1++;
+                }
+                if ((i == 1) && (check[i][j] !=0)){
+                    count2++;
+                }
+                if ((i == 2) && (check[i][j] != 0)){
+                    count3++;
+                }
+            }
+        }
+    // check if player is entitled to prize for each set of numbers as per project requirement
+        switch(count1){
+            case 3: win1 = "€125";
+                break;
+
+            case 4: win1="€300";
+                break;
+
+            case 5: win1 = "€1500";
+                break;
+
+            case 6: win1 = "Jackpot!";
+                break;
+        }
+
+        switch(count2){
+            case 3: win2 = "€125";
+                break;
+
+            case 4: win2 = "€300";
+                break;
+
+            case 5: win2 = "€1500";
+                break;
+
+            case 6: win2 = "Jackpot!";
+                break;
+        }
+        switch(count3){
+            case 3: win3 = "€125";
+                break;
+
+            case 4: win3 = "€300";
+                break;
+
+            case 5: win3 = "€1500";
+                break;
+
+            case 6: win3 = "Jackpot!";
+                break;
+        }
+    }
+
     //getters
     public int[] getLotteryNumbers() {
         return lotteryNumbers;
@@ -113,5 +193,32 @@ public class Lotto {
 
     public int[][] getUserNumbers() {
         return userNumbers;
+    }
+
+    //getting the first user matched numbers counter
+    public int getCount1(){
+        return count1;
+    }
+
+    //getting the second user matched numbers counter
+    public int getCount2(){
+        return count2;
+    }
+
+    //getting the third  user matched numbers counter
+    public int getCount3(){
+        return count3;
+    }
+    // returning game status results for each set of user numbers
+    public String getWin1() {
+        return win1;
+    }
+
+    public String getWin2() {
+        return win2;
+    }
+
+    public String getWin3() {
+        return win3;
     }
 }
