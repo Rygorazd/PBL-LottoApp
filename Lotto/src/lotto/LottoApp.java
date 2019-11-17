@@ -56,12 +56,12 @@ public class LottoApp{
     //ask user for his/her numbers and validate them
     private static void askUsersForTheirGuess(){
         for(int i=0;i<QUESTIONS_AMOUNT;i++){
-            System.out.println("Guess " + (i + 1) + " out of " + QUESTIONS_AMOUNT + ".");
+            System.out.println("Guess " + (i+1) + " out of " + QUESTIONS_AMOUNT + ".");
             System.out.println("Please enter SIX numbers between 1 and 40. Please separate them by ONE space.");
             String numbers=scanner.nextLine().trim();
             if(!lotto.validateUserInput(numbers)){
                 System.out.println("Please enter valid numbers.");
-                if (i >= 0){
+                if (i>=0){
                     i--;
                 }
             }else{

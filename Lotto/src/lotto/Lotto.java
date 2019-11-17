@@ -108,7 +108,7 @@ public class Lotto{
     public void setUserChoice(int row, String numbers){
         String[] selectedNumbers=exctractNumbers(numbers);
 
-        for(int i=0; i<NUMBERS_ARRAY_SIZE; i++){
+        for(int i=0;i<NUMBERS_ARRAY_SIZE;i++){
             int temp=Integer.parseInt(selectedNumbers[i]);
             userNumbers[row][i]=temp;
         }
@@ -121,7 +121,7 @@ public class Lotto{
         for(int i=0;i<userNumbers.length;i++){
             for(int j=0;j<userNumbers[i].length;j++){
                 for(int k=0;k<lotteryNumbers.length;k++){
-                    if(lotteryNumbers[k] == userNumbers[i][j]){
+                    if(lotteryNumbers[k]==userNumbers[i][j]){
                         check[i][j]=userNumbers[i][j];
                     }
                 }
