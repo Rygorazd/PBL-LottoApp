@@ -10,8 +10,8 @@ public class LottoApp{
     private static Lotto lotto=new Lotto();
 
     public static void main(String[] args){
-        int count1,count2,count3;
-        String win1, win2, win3;
+        int firstRoundMatchedNumbers,secondRoundMatchedNumbers,thirdRoundMatchedNumbers;
+        String firstRoundResult, secondRoundResult, thirdRoundResult;
         int lotteryNumbers[];
         int userNumbers[][];
 
@@ -22,12 +22,12 @@ public class LottoApp{
         // calling compute
         lotto.compute();
         // Getting lotto game results from Lotto class
-        count1=lotto.getCount1();
-        count2=lotto.getCount2();
-        count3=lotto.getCount3();
-        win1=lotto.getWin1();
-        win2=lotto.getWin2();
-        win3=lotto.getWin3();
+        firstRoundMatchedNumbers=lotto.getfirstRoundMatchedNumbers();
+        secondRoundMatchedNumbers=lotto.getsecondRoundMatchedNumbers();
+        thirdRoundMatchedNumbers=lotto.getthirdRoundMatchedNumbers();
+        firstRoundResult=lotto.getfirstRoundResult();
+        secondRoundResult=lotto.getsecondRoundResult();
+        thirdRoundResult=lotto.getthirdRoundResult();
         userNumbers=lotto.getUserNumbers();
         lotteryNumbers=lotto.getLotteryNumbers();
 
@@ -35,9 +35,9 @@ public class LottoApp{
         // may be output could be done using JOptionpane ?
         System.out.println("count of successful numbers: ");
 
-        System.out.println("First set: " + count1 + win1);
-        System.out.println("Second set: " + count2 + win2);
-        System.out.println("Third set: " + count3 + win3);
+        System.out.println("First set: " + firstRoundMatchedNumbers + firstRoundResult);
+        System.out.println("Second set: " + secondRoundMatchedNumbers + secondRoundResult);
+        System.out.println("Third set: " + thirdRoundMatchedNumbers + thirdRoundResult);
 
         for(int i=0;i<3;i++ ){
             System.out.println((i+1)+" set numbers");
@@ -65,7 +65,7 @@ public class LottoApp{
                     i--;
                 }
             }else{
-                lotto.setUserChoice(i, numbers);
+                lotto.setUserChoice(i,numbers);
             }
         }
     }
