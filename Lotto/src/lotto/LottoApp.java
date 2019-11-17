@@ -25,12 +25,12 @@ public class LottoApp {
         // calling compute
         lotto.compute();
         // Getting lotto game results from Lotto class
-        count1=lotto.getCount1();
-        count2=lotto.getCount2();
-        count3=lotto.getCount3();
-        win1=lotto.getWin1();
-        win2=lotto.getWin2();
-        win3=lotto.getWin3();
+        count1 = lotto.getCount1();
+        count2 = lotto.getCount2();
+        count3 = lotto.getCount3();
+        win1 = lotto.getWin1();
+        win2 = lotto.getWin2();
+        win3 = lotto.getWin3();
         userNumbers=lotto.getUserNumbers();
         lotteryNumbers=lotto.getLotteryNumbers();
 
@@ -42,16 +42,16 @@ public class LottoApp {
         System.out.println("Second set: " + count2 + win2);
         System.out.println("Third set: " + count3 + win3);
 
-        for(int i=0;i< 3;i++ ){
+        for(int i = 0; i < 3; i++ ){
             System.out.println((i+1) + " set numbers");
-            for(int j=0;j<6;j++) {
+            for(int j = 0; j < 6; j++) {
                 System.out.print(userNumbers[i][j]+" ");
             }
             System.out.println();
         }
         System.out.println("---------------");
         System.out.println("Lottery numbers: ");
-        for(int i=0;i< 6;i++ ){
+        for(int i = 0; i < 6; i++ ){
 
             System.out.print(lotteryNumbers[i]+" ");
         }
