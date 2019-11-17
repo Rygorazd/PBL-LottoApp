@@ -145,43 +145,43 @@ public class Lotto {
         }
     // check if player is entitled to prize for each set of numbers as per project requirement
         switch(count1){
-            case 3: win1 = "€125";
+            case 3: win1 = " - €125";
                 break;
 
-            case 4: win1="€300";
+            case 4: win1=" - €300";
                 break;
 
-            case 5: win1 = "€1500";
+            case 5: win1 = " - €1500";
                 break;
 
-            case 6: win1 = "Jackpot!";
+            case 6: win1 = " - Won the Lottery!";
                 break;
         }
 
         switch(count2){
-            case 3: win2 = "€125";
+            case 3: win2 = " - €125";
                 break;
 
-            case 4: win2 = "€300";
+            case 4: win2 = " - €300";
                 break;
 
-            case 5: win2 = "€1500";
+            case 5: win2 = " - €1500";
                 break;
 
-            case 6: win2 = "Jackpot!";
+            case 6: win2 = " - Won the Lottery!";
                 break;
         }
         switch(count3){
-            case 3: win3 = "€125";
+            case 3: win3 = " - €125";
                 break;
 
-            case 4: win3 = "€300";
+            case 4: win3 = " - €300";
                 break;
 
-            case 5: win3 = "€1500";
+            case 5: win3 = " - €1500";
                 break;
 
-            case 6: win3 = "Jackpot!";
+            case 6: win3 = " - Won the Lottery!";
                 break;
         }
     }

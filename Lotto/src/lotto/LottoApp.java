@@ -45,7 +45,7 @@ public class LottoApp {
         for(int i = 0; i < 3; i++ ){
             System.out.println((i+1) + " set numbers");
             for(int j = 0; j < 6; j++) {
-                System.out.print(userNumbers[i][j]+" ");
+                System.out.print(userNumbers[i][j] + " ");
             }
             System.out.println();
         }
