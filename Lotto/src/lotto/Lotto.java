@@ -119,11 +119,11 @@ public class Lotto {
     // iteration through each set of user numbers to check with lottery numbers matches.
     // if user guess is matching to lottery number check array is getting updated with matched number ==> line 126
     public void compute(){
-        for (int i = 0;i < userNumbers.length; i++){
+        for (int i = 0; i < userNumbers.length; i++){
             for(int j = 0; j < userNumbers[i].length; j++){
                 for(int k = 0; k < lotteryNumbers.length; k++){
                     if(lotteryNumbers[k] == userNumbers[i][j]){
-                        check[i][j]=userNumbers[i][j];
+                        check[i][j] = userNumbers[i][j];
                     }
                 }
             }
@@ -131,11 +131,11 @@ public class Lotto {
         // Count of player's successful guess numbers in check array.
         //  if number is not zero, then count is getting incremented by 1
         for (int i = 0; i < check.length; i++){
-            for (int j=0; j<check[i].length; j++){
+            for (int j=0; j < check[i].length; j++){
                 if ((i == 0) && (check[i][j] != 0)){
                     count1++;
                 }
-                if ((i == 1) && (check[i][j] !=0)){
+                if ((i == 1) && (check[i][j] != 0)){
                     count2++;
                 }
                 if ((i == 2) && (check[i][j] != 0)){
