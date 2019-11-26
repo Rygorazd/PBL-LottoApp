@@ -16,6 +16,8 @@ public class Lotto {
     private int firstRoundMatchedNumbers, secondRoundMatchedNumbers, thirdRoundMatchedNumbers, matchedNumbers; // successful guess counters
     private String firstRoundResult, secondRoundResult, thirdRoundResult, gameResult; // variables for game result status
 
+    private int linesPlayed, linesWon, totalWinnings, allGamesPlayed, averageWinnings; // variables for summary of the game
+
     public Lotto() {
         //initialize variables
         NUMBERS_ARRAY_SIZE = 6;
@@ -35,6 +37,12 @@ public class Lotto {
         secondRoundResult = " - No Prize, try again";
         thirdRoundResult = " - No Prize, try again";
         gameResult = " - No Prize, try again";
+
+        linesPlayed=0;
+        linesWon=0;
+        totalWinnings=0;
+        allGamesPlayed=0;
+        averageWinnings=0;
 
         //generate lottery numbers
         generateLotteryNumbers();
@@ -204,7 +212,7 @@ public class Lotto {
                   //  break;
 
                 case 6:
-                    gameResult=" - Won the Lottery!";
+                    gameResult=" - Won the Lottery! €100000";
                     return gameResult;
                    // break;
             }
