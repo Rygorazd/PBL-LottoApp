@@ -99,7 +99,7 @@ public class Lotto {
                 }
             }
         }
-        lotteryNumbers = new int[]{3, 4, 22, 9, 21, 10} ;// added for testing purposes
+      //  lotteryNumbers = new int[]{3, 4, 22, 9, 21, 10} ;// added for testing purposes
     }
 
     private String[] exctractNumbers(String numbers) {
