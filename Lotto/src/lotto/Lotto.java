@@ -16,6 +16,7 @@ public class Lotto {
     private int firstRoundMatchedNumbers, secondRoundMatchedNumbers, thirdRoundMatchedNumbers, matchedNumbers; // successful guess counters
     private String firstRoundResult, secondRoundResult, thirdRoundResult, gameResult; // variables for game result status
 
+    private String reply; // variable for loop
     private int linesPlayed, linesWon, totalWinnings, allGamesPlayed, averageWinnings; // variables for summary of the game
 
     public Lotto() {
@@ -38,6 +39,7 @@ public class Lotto {
         thirdRoundResult = " - No Prize, try again";
         gameResult = " - No Prize, try again";
 
+        reply="";
         linesPlayed=0;
         linesWon=0;
         totalWinnings=0;

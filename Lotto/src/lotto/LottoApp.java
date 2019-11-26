@@ -11,12 +11,14 @@ public class LottoApp{
 
     public static void main(String[] args){
         int firstRoundMatchedNumbers,secondRoundMatchedNumbers,thirdRoundMatchedNumbers;
-        String firstRoundResult, secondRoundResult, thirdRoundResult;
+        String firstRoundResult, secondRoundResult, thirdRoundResult, reply;
         int lotteryNumbers[];
         int userNumbers[][];
 
         //ask user for his/her lottery numbers
         System.out.println("Welcome to the Lotto game!");
+        //start of the loop
+        do{
         askUsersForTheirGuess();
 
         // calling compute
@@ -51,6 +53,12 @@ public class LottoApp{
         for(int i=0;i<6;i++){
             System.out.print(lotteryNumbers[i]+" ");
         }
+        //loop
+        System.out.println("Would you like to continue?(yes/no) ");
+        reply=scanner.nextLine();
+    }while(reply.equalsIgnoreCase("yes"));
+
+    }
     }
 
     //ask user for his/her numbers and validate them
