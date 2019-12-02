@@ -18,6 +18,7 @@ public class LottoApp{
         //start of the loop
         do{
             lotto.clear();
+            lotto.generateLotteryNumbers();
             askUsersForTheirGuess();
             // calling compute
             lotto.compute();
@@ -34,7 +35,7 @@ public class LottoApp{
 
             // displaying game results -- this is just for outputting results from compute
             // may be output could be done using JOptionpane ?
-            System.out.println("count of successful numbers: ");
+            System.out.println("Count of successful numbers: ");
 
             System.out.println("First set: " + firstRoundMatchedNumbers + firstRoundResult);
             System.out.println("Second set: " + secondRoundMatchedNumbers + secondRoundResult);
