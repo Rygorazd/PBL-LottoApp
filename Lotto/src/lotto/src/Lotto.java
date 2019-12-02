@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Lotto{
@@ -7,15 +8,21 @@ public class Lotto{
     private final int MIN_RANDOM_NUMBER;
     private final int MAX_RANDOM_NUMBER;
     private final int USER_CHOICE_ROWS_NUMBER;
+    private final int THREE_NUMBERS_PRIZE;
+    private final int FOUR_NUMBERS_PRIZE;
+    private final int FIVE_NUMBERS_PRIZE;
+    private final int MAIN_LOTTERY_PRIZE;
 
     private int[] lotteryNumbers; // lottery random set numbers 1D array
     private int[][] userNumbers, check; // user three guess set  numbers array
+    private ArrayList<Integer> allWinnings;
+    private int totalGamesPlayed;
     private Random random; // random numbers variable
     private int firstRoundMatchedNumbers, secondRoundMatchedNumbers, thirdRoundMatchedNumbers, matchedNumbers; // successful guess counters
-    private String firstRoundResult, secondRoundResult, thirdRoundResult, gameResult; // variables forgame result status
+    private String firstRoundResult, secondRoundResult, thirdRoundResult, gameResult; // variables forgame result status  
 
     private String reply; // variable forloop
-    private int linesPlayed, linesWon, totalWinnings, allGamesPlayed, averageWinnings; // variables forsummary of the game
+    private int linesPlayed, linesWon, totalWinnings; // variables forsummary of the game
 
     public Lotto(){
         //initialize variables
@@ -23,11 +30,17 @@ public class Lotto{
         MIN_RANDOM_NUMBER=1;
         MAX_RANDOM_NUMBER=40;
         USER_CHOICE_ROWS_NUMBER=3;
+        THREE_NUMBERS_PRIZE=125;
+        FOUR_NUMBERS_PRIZE=300;
+        FIVE_NUMBERS_PRIZE=1500;
+        MAIN_LOTTERY_PRIZE=100000;
 
         lotteryNumbers=new int[NUMBERS_ARRAY_SIZE];
         userNumbers=new int[USER_CHOICE_ROWS_NUMBER][NUMBERS_ARRAY_SIZE];
         check=new int[USER_CHOICE_ROWS_NUMBER][NUMBERS_ARRAY_SIZE];
         random=new Random();
+        allWinnings=new ArrayList<Integer>();
+        totalGamesPlayed=0;
         firstRoundMatchedNumbers=0;
         secondRoundMatchedNumbers=0;
         thirdRoundMatchedNumbers=0;
@@ -40,9 +53,6 @@ public class Lotto{
         reply="";
         linesPlayed=0;
         linesWon=0;
-        totalWinnings=0;
-        allGamesPlayed=0;
-        averageWinnings=0;
     }
 
     //clear user input and secret number between rounds/games
@@ -109,7 +119,7 @@ public class Lotto{
         }
 
         // Count of player's successful guess numbers in check array.
-        //  ifnumber is not zero, then count is getting incremented by 1
+        //  if number is not zero, then count is getting incremented by 1
         for(int i=0; i<check.length;i++){
             for(int j=0; j<check[i].length; j++){
                 if((i==0) && (check[i][j]!=0)){
@@ -142,6 +152,24 @@ public class Lotto{
             }
         }
     }
+    
+    //get user's average win
+    public double getAverageWin(){
+        //no wins
+        if(allWinnings.isEmpty()){
+            return 0;
+        }else{
+            double total=0;
+            for(int i=0;i<allWinnings.size();i++){
+                total+=allWinnings.get(i);
+            }
+            return total / allWinnings.size();
+        }       
+    }
+    
+    public void InrementTotalGamesPlayed(){
+        totalGamesPlayed++;
+    }
 
     /* Random returns random int value between 0 (inclusive) and the specified value (exclusive).
        So to get values between 1 and some number we have to add 1 to the randomly generated number.
@@ -154,28 +182,37 @@ public class Lotto{
         String delimeter=" ";
         return numbers.split(delimeter);
     }
+    
+    private void IncrementTotalWinnings(){
+        totalWinnings++;
+    }
 
     private String gameResults(int matchedNumbers){
         gameResult=" - No Prize, try again ";
         switch (matchedNumbers) {
             case 3:
                 gameResult=" - €125";
-                break;
+                allWinnings.add(THREE_NUMBERS_PRIZE);
+                IncrementTotalWinnings();
+                return gameResult;
 
             case 4:
                 gameResult=" - €300";
+                allWinnings.add(FOUR_NUMBERS_PRIZE);
+                IncrementTotalWinnings();
                 return gameResult;
-            // break;
 
             case 5:
                 gameResult=" - €1500";
+                allWinnings.add(FIVE_NUMBERS_PRIZE);
+                IncrementTotalWinnings();
                 return gameResult;
-            //  break;
 
             case 6:
                 gameResult=" - Won the Lottery! €100000";
+                allWinnings.add(MAIN_LOTTERY_PRIZE);
+                IncrementTotalWinnings();
                 return gameResult;
-            // break;
         }
         return gameResult;
     }
@@ -215,6 +252,14 @@ public class Lotto{
 
     public String getthirdRoundResult(){
         return thirdRoundResult;
+    }
+    
+    public int getTotalGamesPlayed(){
+        return totalGamesPlayed;
+    }
+    
+    public int getTotalWinnings(){
+        return totalWinnings;
     }
 
     //setters

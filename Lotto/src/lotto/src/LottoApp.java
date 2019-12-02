@@ -17,6 +17,7 @@ public class LottoApp{
         System.out.println("Welcome to the Lotto game!");
         //start of the loop
         do{
+            lotto.InrementTotalGamesPlayed();
             lotto.clear();
             lotto.generateLotteryNumbers();
             askUsersForTheirGuess();
@@ -31,7 +32,6 @@ public class LottoApp{
             thirdRoundResult=lotto.getthirdRoundResult();
             userNumbers=lotto.getUserNumbers();
             lotteryNumbers=lotto.getLotteryNumbers();
-
 
             // displaying game results -- this is just for outputting results from compute
             // may be output could be done using JOptionpane ?
@@ -58,7 +58,11 @@ public class LottoApp{
             reply=scanner.nextLine();
         }
         while(reply.equalsIgnoreCase("yes"));
-
+        
+        //display total games played, total games won and average total win
+        System.out.println("You played " + lotto.getTotalGamesPlayed() + " game(s) in total.");
+        System.out.println("You won " + lotto.getTotalWinnings() + " out of " + lotto.getTotalGamesPlayed() + " game(s) played.");
+        System.out.println("Your average win is €" + lotto.getAverageWin());
     }
 
 
