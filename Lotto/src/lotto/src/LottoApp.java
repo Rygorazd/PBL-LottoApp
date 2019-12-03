@@ -61,7 +61,7 @@ public class LottoApp{
         
         //display total games played, total games won and average total win
         System.out.println("You played " + lotto.getTotalGamesPlayed() + " game(s) in total.");
-        System.out.println("You won " + lotto.getTotalWinnings() + " out of " + lotto.getTotalGamesPlayed() + " game(s) played.");
+        System.out.println("You won " + lotto.getTotalWinnings() + " lines out of " + lotto.getTotalGamesPlayed() + " game(s) played.");
         System.out.println("Your average win is €" + lotto.getAverageWin());
     }
 
