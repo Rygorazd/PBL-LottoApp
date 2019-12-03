@@ -167,7 +167,7 @@ public class Lotto{
         }       
     }
     
-    public void InrementTotalGamesPlayed(){
+    public void incrementTotalGamesPlayed(){
         totalGamesPlayed++;
     }
 
@@ -183,7 +183,7 @@ public class Lotto{
         return numbers.split(delimeter);
     }
     
-    private void IncrementTotalWinnings(){
+    private void incrementTotalWinnings(){
         totalWinnings++;
     }
 
@@ -193,25 +193,25 @@ public class Lotto{
             case 3:
                 gameResult=" - €125";
                 allWinnings.add(THREE_NUMBERS_PRIZE);
-                IncrementTotalWinnings();
+                incrementTotalWinnings();
                 return gameResult;
 
             case 4:
                 gameResult=" - €300";
                 allWinnings.add(FOUR_NUMBERS_PRIZE);
-                IncrementTotalWinnings();
+                incrementTotalWinnings();
                 return gameResult;
 
             case 5:
                 gameResult=" - €1500";
                 allWinnings.add(FIVE_NUMBERS_PRIZE);
-                IncrementTotalWinnings();
+                incrementTotalWinnings();
                 return gameResult;
 
             case 6:
                 gameResult=" - Won the Lottery! €100000";
                 allWinnings.add(MAIN_LOTTERY_PRIZE);
-                IncrementTotalWinnings();
+                incrementTotalWinnings();
                 return gameResult;
         }
         return gameResult;

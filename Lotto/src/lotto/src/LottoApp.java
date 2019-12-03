@@ -17,7 +17,7 @@ public class LottoApp{
         System.out.println("Welcome to the Lotto game!");
         //start of the loop
         do{
-            lotto.InrementTotalGamesPlayed();
+            lotto.incrementTotalGamesPlayed();
             lotto.clear();
             lotto.generateLotteryNumbers();
             askUsersForTheirGuess();
